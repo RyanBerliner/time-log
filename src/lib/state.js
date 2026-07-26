@@ -62,6 +62,9 @@ function state(initialState, onFlush) {
     // 
     // IDEA: i think we should also notify ancestor subscribers... for example
     //       if l1.l2.l3 is updated, notify l1.l2.l3, also l1.l2, also l1
+    //
+    // IDEA: this would actually be pretty easy... just search for all subs
+    //       that start with the updated key.
     const funcs = subscribers.get(args.slice(0, -1).join('.'));
     if (funcs) {
       funcs.forEach(fn => fn(prevValue, ptr[lastKey]));
