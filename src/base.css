@@ -1,0 +1,36 @@
+:root {
+  --black: #0d1b2aff;
+  --dark-blue: #1b263bff;
+  --blue: #415a77ff;
+  --light-blue: #778da9ff;
+  --dark-red: #560909ff;
+  --red: #c31e1eff;
+  --grey: #e0e1ddff;
+  --white: #eff0ecff;
+
+  --spacer: 0.5rem;
+
+  --dialog-animation-duration: 0.5s;
+  --dialog-animation-timing: cubic-bezier(0.46, -0.01, 0, 1);
+
+  --btn-vertical-padding: 0.4rem;
+  --btn-horizontal-padding: 0.7rem;
+  --btn-font-size: 0.9rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  line-height: 1;
+}
+
+html {
+  font-size: 16px;
+}
+
+html, body {
+  font-family: sans-serif;
+  color: var(--black);
+}

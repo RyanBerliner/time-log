@@ -1,0 +1,22 @@
+button {
+  background: var(--grey);
+  color: var(--dark-blue);
+  border-radius: 100px;
+  padding: var(--btn-vertical-padding) var(--btn-horizontal-padding);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  border: none;
+  appearance: none;
+  font-size: var(--btn-font-size);
+}
+
+button.primary {
+  background: var(--dark-blue);
+  color: var(--grey);
+}
+
+button.danger {
+  background: var(--red);
+  color: var(--grey);
+}

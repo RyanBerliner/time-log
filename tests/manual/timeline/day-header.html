@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test / Manual / Timeline / Day Header</title>
+    <style>
+      @import "../test.css";
+      @import "../../../src/timeline/day-header.css";
+      @import "../../../src/button.css";
+
+      body { padding: var(--spacer); }
+      #root > * { margin-bottom: var(--spacer); }
+
+      .update-minutes { margin: calc(var(--spacer) * 2) 0; }
+      .update-minutes > button:last-child { margin: var(--spacer); }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="module">
+      import { $, on } from '../../../src/lib/node.js';
+      import DayHeader, * as DayHeaderAPI from '../../../src/timeline/day-header.js';
+
+      const root = document.getElementById('root');
+      let test;
+
+      // list out each day of the week
+      let testDate = new Date();
+      for (let i = 0; i < 7; i++) {
+        testDate.setDate(testDate.getDate() + 1);
+        test = DayHeader({date: testDate, minutes: 60});
+        root.appendChild(test);
+      }
+
+      // today should be shown as such, also notice missing minutes
+      test = DayHeader({date: new Date()});
+      root.appendChild(test);
+
+      // updateMinutes test
+      let minutes = 60;
+      const $DayHeader = DayHeader({date: new Date(), minutes});
+
+      function mount(testContainer) {
+        on(testContainer.querySelector('.dec'), 'click', () => {
+          minutes -= 15;
+          DayHeaderAPI.updateMinutes($DayHeader, minutes);
+        });
+
+        on(testContainer.querySelector('.inc'), 'click', () => {
+          minutes += 15;
+          DayHeaderAPI.updateMinutes($DayHeader, minutes);
+        });
+      }
+
+      root.appendChild($('div.update-minutes', [
+        $DayHeader,
+        $('button.dec', ['Remove Minutes']),
+        $('button.inc.primary', ['Add Minutes']),
+      ], mount));
+    </script>
+  </body>
+</html>

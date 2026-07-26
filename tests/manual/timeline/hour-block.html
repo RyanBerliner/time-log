@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test / Manual / Timeline / Hour</title>
+    <style>
+      @import "../test.css";
+      @import "../../../src/timeline/hour-block.css";
+      @import "../../../src/button.css";
+
+      body { padding: var(--spacer); }
+      #root > * { margin-bottom: var(--spacer); }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="module">
+      import { $ } from '../../../src/lib/node.js';
+      import HourBlock from '../../../src/timeline/hour-block.js';
+
+      const root = document.getElementById('root');
+
+      // even hour
+      let test = HourBlock({label: 'Lorem Ipsum', minutes: 60});
+      root.appendChild(test);
+
+      // fractional hours
+      test = HourBlock({label: 'Lorem Ipsum', minutes: 90});
+      root.appendChild(test);
+
+      // less than 1 hour
+      test = HourBlock({label: 'Lorem Ipsum', minutes: 30});
+      root.appendChild(test);
+
+      // this one is to test truncation
+      test = HourBlock({label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', minutes: 60});
+      root.appendChild(test);
+
+      // test minutes that dont conform to 15 minute tests
+      test = HourBlock({label: 'Lorem Ipsum', minutes: 80});
+      root.appendChild(test);
+
+      // test that its roughly the same size vertically as a button
+      test = $('div[style="display:flex;gap:var(--spacer);"]', [
+        $('button', ['Test Button']),
+        HourBlock({label: 'Lorem Ipsum', minutes: 60}),
+      ]);
+
+      root.appendChild(test);
+    </script>
+  </body>
+</html>

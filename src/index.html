@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app/index.css">
+    <title>Time Log</title>
+  </head>
+  <body>
+    <noscript>You must enable javascript.</noscript>
+		<div id="root"></div>
+    <script>
+      const isProd = !window.location.hostname === 'localhost';
+
+      if ('serviceWorker' in navigator) {
+        const scope = isProd ? '/time-log/' : '/src/';
+
+        navigator.serviceWorker.register('service-worker.js', {scope})
+          .then(function(registration) {
+            console.log('Service worker registration successful, scope is:', registration.scope);
+          })
+          .catch(function(error) {
+            console.log('Service worker registration failed, error:', error);
+          });
+      }
+    </script>
+    <script src="app/index.js" type="module"></script>
+  </body>
+</html>

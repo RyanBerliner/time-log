@@ -1,0 +1,20 @@
+@import "../base.css";
+@import "../button.css";
+@import "../timeline/day-header.css";
+@import "../timeline/day.css";
+@import "../timeline/hour-block.css";
+
+@import "dialog.css";
+@import "log-hours.css";
+
+.app {
+  overflow: hidden;
+  /* actual black... stupid looking otherwise when doing dialog */
+  background: #000;
+}
+
+.page {
+  height: 100dvh;
+  background: var(--white);
+  overflow: hidden;
+}

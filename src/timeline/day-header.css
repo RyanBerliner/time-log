@@ -1,0 +1,42 @@
+.timeline__day-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.timeline__day-header > span[class^="dow"] {
+  font-size: 0.7rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  padding: 0.2em 0.6em;
+  background: var(--grey);
+  color: var(--dark-blue);
+  border-radius: 99px;
+}
+
+.timeline__day-header > span.dow-0,
+.timeline__day-header > span.dow-6 {
+  background: transparent;
+  opacity: 0.8;
+}
+
+.timeline__day-header > span.date {
+  font-weight: 700;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timeline__day-header > span.date.today {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 1px;
+  text-decoration-thickness: 2px;
+}
+
+.timeline__day-header > span.hours {
+  font-family: monospace;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test / Manual / Timeline / Day Timeline</title>
+    <style>
+      @import "../test.css";
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="module">
+      import { $ } from '../../../src/lib/node.js';
+
+      import DayTimeline from '../../../src/timeline/day-timeline.js';
+
+      const root = document.getElementById('root');
+
+      // just some dummy renderer for each item
+      let test = DayTimeline(date => $('li', [date.toLocaleString()]));
+      root.appendChild($('div[style="height:500px;position:relative;"]', [test]));
+    </script>
+  </body>
+</html>

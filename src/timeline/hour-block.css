@@ -1,0 +1,22 @@
+.timeline__hour-block {
+  align-items: center;
+  display: flex;
+}
+
+.timeline__hour-block > span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* this is so the lower and upper parts of the characters dont get cut off */
+  padding: 0.3em 0;
+}
+
+.timeline__hour-block > strong {
+  background: var(--grey);
+  border-radius: 99px;
+  color: var(--dark-blue);
+  font-family: monospace;
+  font-size: var(--btn-font-size);
+  padding: var(--btn-vertical-padding) var(--btn-horizontal-padding);
+  margin-right: 0.3em;
+}

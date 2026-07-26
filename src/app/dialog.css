@@ -1,0 +1,41 @@
+.dialog {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: calc(3 * var(--spacer));
+  bottom: 0;
+  box-shadow: 0 0 75px rgba(0,0,0,0);
+  background: var(--white);
+  transition: transform var(--dialog-animation-duration) var(--dialog-animation-timing),
+            box-shadow var(--dialog-animation-duration) var(--dialog-animation-timing);
+  display: none;
+  overflow: hidden;
+  padding: calc(var(--spacer) * 2);
+
+  transform: scale(1.1) translateY(100%);
+  border-radius: 1.8rem 1.8rem 0 0;
+}
+
+.dialog.show {
+  box-shadow: 0 0 75px rgba(0,0,0,0.5);
+}
+
+.dialog.show {
+  transform: scale(1) translateY(0);
+}
+
+/*
+ * This is a little weird that there are things we have to do outside the scope
+ * of the dialog component itself. whatever.
+ */
+
+.page {
+  transition: transform var(--dialog-animation-duration) var(--dialog-animation-timing);
+  transform-origin: top;
+  box-shadow: 0 0 0 var(--spacer) var(--white);
+  border-radius: 1rem;
+}
+
+.page.backdrop {
+  transform: scale(0.9) translateY(calc(3 * var(--spacer)));
+}

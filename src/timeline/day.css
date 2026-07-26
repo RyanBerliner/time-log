@@ -1,0 +1,28 @@
+.timeline__day {
+  border-top: 1px solid var(--grey);
+  padding: var(--spacer);
+}
+
+.timeline__day > div.content {
+  display: flex;
+  align-items: center;
+  margin-top: var(--spacer);
+}
+
+.timeline__day > div.content > ul:empty:before {
+  content: 'Tap to add hours';
+  display: block;
+  text-align: center;
+  opacity: 0.5;
+  flex-grow: 1;
+  line-height: 1.7;
+}
+
+.timeline__day > div.content > ul {
+  list-style: none;
+  display: flex;
+  gap: var(--spacer);
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-grow: 1;
+}

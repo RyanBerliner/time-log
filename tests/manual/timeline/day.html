@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test / Manual / Timeline / Day</title>
+    <style>
+      @import "../test.css";
+      @import "../../../src/button.css";
+      @import "../../../src/timeline/day-header.css";
+      @import "../../../src/timeline/day.css";
+      @import "../../../src/timeline/hour-block.css";
+
+      .add-hour-button-funcs { margin: calc(var(--spacer) * 2) 0; }
+      .add-hour-button-funcs > button:last-child { margin-left: var(--spacer); }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="module">
+      import { $, on, off } from '../../../src/lib/node.js';
+
+      import Day, {
+        AddHourButton,
+        showAddHourButton,
+        removeAddHourButton,
+      } from '../../../src/timeline/day.js';
+      import HourBlock from '../../../src/timeline/hour-block.js';
+      import DayHeader from '../../../src/timeline/day-header.js';
+
+      const root = document.getElementById('root');
+
+      // make sure the skeleton looks OK
+      let test = Day({
+        $DayHeader: $('div', ['The day header']),
+        $AddHourButton: $('div', ['The add hour button']),
+        hourNodes: [
+          $('li', ['hour 1']),
+          $('li', ['hour 2']),
+          $('li', ['hour 3']),
+        ],
+      });
+      root.appendChild(test);
+
+      // empty list should show correctly
+      test = Day({
+        $DayHeader: $('div', ['The day header']),
+        $AddHourButton: $('div', ['The add hour button']),
+        hourNodes: [],
+      });
+      root.appendChild(test);
+
+      // [show|remove]AddHourButton testing
+      const $Day = Day({
+        $DayHeader: $('div', ['The day header']),
+        $AddHourButton: $('button', ['Toggle my visibility'], node => {
+          // simple click event so we can make sure its persistant between
+          // unmounting and remounting
+          return on(node, 'click', e => alert('add hour!'));
+        }),
+        hourNodes: [
+          $('li', ['hour 1']),
+          $('li', ['hour 2']),
+          $('li', ['hour 3']),
+        ],
+      });
+
+      const $Toggle = $('button.primary', ['Toggle Button']);
+      let showing = true;
+
+      on($Toggle, 'click', () => {
+        if (showing) {
+          removeAddHourButton($Day);
+        } else {
+          showAddHourButton($Day);
+        }
+
+        showing = !showing;
+      });
+
+      root.appendChild($('div.add-hour-button-funcs', [$Day, $Toggle]));
+
+      // and finally a nicely composed example of everything together as it
+      // might appear in the app
+      for (let i = 0; i < 7; i++) {
+        let date = new Date();
+        date.setDate(date.getDate() + i);
+        const $AddHourButton = AddHourButton();
+        const $DayHeader = DayHeader({
+          date,
+          minutes: 60,
+        });
+        test = Day({
+          $DayHeader,
+          $AddHourButton,
+          hourNodes: i === 3 ? [] : [
+            $('li', [HourBlock({minutes: 65, label: 'hour block 1'})]),
+            $('li', [HourBlock({minutes: 65, label: 'hour block 2'})]),
+            $('li', [HourBlock({minutes: 65, label: 'hour block 3'})]),
+          ],
+        });
+        root.appendChild(test);
+      }
+    </script>
+  </body>
+</html>
