@@ -27,7 +27,7 @@ From there you can:
 
 This PWA uses a service worker to caches assets, so to see your updates, you
 must open the application tab in devtools, navigate to service worker, and
-enable updating on reload.
+select "bypass for network".
 
 ## Deployment
 

@@ -3,22 +3,22 @@
 // This version number and filelist is generated automatically from the build
 // script in scripts/build.sh.
 //
-const AUTOGEN_CACHE_VERSION = 'fce1f55ff10ddc28cbf88fc98e68ee6f9c0deacf';
-const AUTOGEN_CACHE_ASSETS = ['index.html','app/log-hours.js','app/log-hours.css','app/dialog.js','app/index.js','app/index.css','app/data.js','app/dialog.css','app/timeline/render-day.js','lib/timeline.js','lib/node.js','lib/state.js','lib/date.js','button.css','timeline/hour-block.css','timeline/day-header.css','timeline/day-header.js','timeline/day.css','timeline/day-timeline.js','timeline/day.js','timeline/hour-block.js','base.css'];
+const AUTOGEN_CACHE_VERSION = '7b31a42e456752dda15cd5b7f035b2186cfcd462';
+const AUTOGEN_CACHE_ASSETS = ['index.html','app/log-hours.js','app/log-hours.css','app/dialog.js','app/index.js','app/index.css','app/update-notice.js','app/data.js','app/update-notice.css','app/dialog.css','app/timeline/render-day.js','lib/timeline.js','lib/node.js','lib/state.js','lib/date.js','button.css','timeline/hour-block.css','timeline/day-header.css','timeline/day-header.js','timeline/day.css','timeline/day-timeline.js','timeline/day.js','timeline/hour-block.js','base.css'];
 
-// This is deployed a my github pages site, which contains other projects
+// This is deployed on my github pages site, which contains other projects
 // and sites on the same domain. Because of this we should prefix the caches
 // with something specific to timesheets so we lessen the possiblity of conflicts
 
 const CACHE_PREFIX = 'time-log[files]';
 
 const EXPECTED_CACHES = [
-  `${CACHE_PREFIX}static-${AUTOGEN_CACHE_VERSION}`,
+  `${CACHE_PREFIX}-${AUTOGEN_CACHE_VERSION}`,
 ];
 
 self.addEventListener('install', function (event) {
   event.waitUntil(
-    caches.open(`${CACHE_PREFIX}static-${AUTOGEN_CACHE_VERSION}`).then(function (cache) {
+    caches.open(`${CACHE_PREFIX}-${AUTOGEN_CACHE_VERSION}`).then(function (cache) {
       return cache.addAll(AUTOGEN_CACHE_ASSETS);
     }),
   );
@@ -47,4 +47,10 @@ self.addEventListener('fetch', function (event) {
       return response || fetch(event.request);
     }),
   );
+});
+
+self.addEventListener('message', (event) => {
+  if (event.data === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });
