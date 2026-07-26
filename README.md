@@ -32,6 +32,6 @@ enable updating on reload.
 ## Deployment
 
 Run `./scripts/build.sh`. This will update `src/service-worker.js` to tag a new
-file cache and udpate the list of files. Commit the result with something like
-"release blah blah". Push the commit, and a GitHub action will see the
-`src/service-worker.js` change and trigger a deployment.
+file cache and udpate the list of files. Commit the result and push the commit.
+A GitHub action will see the `src/service-worker.js` change and trigger a
+deployment.

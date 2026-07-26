@@ -6,8 +6,10 @@ const appState = state({
 });
 
 function setView(view, viewData = {}) {
-  appState.set('view', view);
+  // TODO: should have a way of batching state updates so the order here
+  //       doesnt matter in any real sense
   appState.set('viewData', viewData);
+  appState.set('view', view);
 }
 
 // basic saving to local storage

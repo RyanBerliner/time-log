@@ -33,6 +33,12 @@
   flex-basis: 0;
   flex-grow: 1;
   width: 100%;
+  border-radius: 67px;
+}
+
+.app__log-hours .header .inputs > input:focus {
+  outline: none;
+  background: var(--grey);
 }
 
 

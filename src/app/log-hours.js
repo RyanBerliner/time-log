@@ -30,7 +30,7 @@ function LogHours() {
   ]);
 
   const defaultLabel = 'Unnamed';
-  const $LabelInput = $(`input[value="${defaultLabel}"]`);
+  const $LabelInput = $(`input[value="${defaultLabel}"][placeholder="No name"]`);
 
   const defaultLocation = '';
   const $LocationInput = $(`input[type="text"][value="${defaultLocation}"][placeholder="No location"]`);
@@ -61,6 +61,15 @@ function LogHours() {
     }
 
     reset();
+
+    appState.subscribe('view', (_, view) => {
+      if (view === 'log') {
+        const viewData = appState.get('viewData')?.updateHour;
+        if (!viewData) {
+          $LabelInput.select();
+        }
+      }
+    });
 
     let resetTimeout;
     appState.subscribe('viewData', (_, viewData) => {
