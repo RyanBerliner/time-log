@@ -13,12 +13,12 @@ const AUTOGEN_CACHE_ASSETS = ['index.html','app/log-hours.js','app/log-hours.css
 const CACHE_PREFIX = 'time-log[files]';
 
 const EXPECTED_CACHES = [
-  `${CACHE_PREFIX}static-${AUTOGEN_CACHE_ASSETS}`,
+  `${CACHE_PREFIX}static-${AUTOGEN_CACHE_VERSION}`,
 ];
 
 self.addEventListener('install', function (event) {
   event.waitUntil(
-    caches.open(`${CACHE_PREFIX}static-${AUTOGEN_CACHE_ASSETS}`).then(function (cache) {
+    caches.open(`${CACHE_PREFIX}static-${AUTOGEN_CACHE_VERSION}`).then(function (cache) {
       return cache.addAll(AUTOGEN_CACHE_ASSETS);
     }),
   );
