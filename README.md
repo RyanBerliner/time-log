@@ -2,6 +2,15 @@
 
 An offline PWA for logging time.
 
+## How to install on your phone
+
+Visit [https://ryanberliner.com/time-log/index.html](https://ryanberliner.com/time-log/index.html).
+
+To install on your home screen (which is **required for offline usage**), follow the instructions for your type of phone.
+
+- [Instructions for iPhone](https://www.macrumors.com/how-to/add-a-web-link-to-home-screen-iphone-ipad/)
+- [Instructions for Android](https://www.howtogeek.com/667938/how-to-add-a-website-to-your-android-home-screen/)
+
 ## Development
 
 Because this project uses native browser ESM, you can't just open up
