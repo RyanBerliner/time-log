@@ -1,0 +1,52 @@
+.app__send-report__trigger {
+  position: fixed;
+  z-index: 1;
+  bottom: var(--spacer);
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 17px rgba(0,0,0,0.2);
+}
+
+.app__send-report > .header > p {
+  font-weight: 700;
+  font-size: 1.25rem;
+  padding-left: var(--spacer);
+}
+
+.app__send-report select {
+  appearance: none;
+  border: none;
+  background: var(--grey);
+  text-align: center;
+  min-width: 0;
+  flex-basis: 0;
+  flex-grow: 1;
+  width: 100%;
+  border-radius: 67px;
+  padding: 0.8em;
+  margin: 0 var(--spacer);
+}
+
+.app__send-report select:focus {
+  outline: none;
+}
+
+.app__send-report .report {
+  padding: calc(3*var(--spacer));
+  padding-bottom: calc(2*var(--spacer));
+  margin-top: calc(2*var(--spacer));
+  background: var(--grey);
+  border-radius: 1.2em;
+}
+
+.app__send-report .report .total {
+  margin-bottom: var(--spacer);
+}
+
+.app__send-report .report ul {
+  list-style: none;
+}
+
+.app__send-report .report > ul > li {
+  margin-bottom: var(--spacer);
+}

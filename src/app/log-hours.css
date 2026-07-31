@@ -3,17 +3,6 @@
   overflow: auto;
 }
 
-.app__log-hours .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: monospace;
-  margin-bottom: var(--spacer);
-  position: sticky;
-  top: 0;
-  background: var(--white);
-}
-
 .app__log-hours .header .inputs {
   flex-basis: 0;
   flex-grow: 1;
@@ -41,33 +30,10 @@
   background: var(--grey);
 }
 
-
 .app__log-hours .header .inputs > input:first-child {
   font-size: 1.15rem;
   padding: 0.1em;
   margin-bottom: 0;
-}
-
-.app__log-hours .header .check,
-.app__log-hours .header .cancel {
-  height: 2.67rem;
-  width: 2.67rem;
-  border-radius: 50%;
-  font-size: 0;
-  background-size: 1rem;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* TODO: these images are shit slop ... create my own svgs */
-
-.app__log-hours .header .check {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20.285 2.709l-11.31 11.31-5.657-5.657-2.828 2.828 8.485 8.485 14.142-14.142z'/%3E%3C/svg%3E");
-}
-
-.app__log-hours .header .cancel {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='square' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E");
-  background-size: 1.2rem;
 }
 
 .app__log-hours .adjusters {

@@ -1,4 +1,5 @@
-button {
+button,
+.button {
   background: var(--grey);
   color: var(--dark-blue);
   border-radius: 100px;
@@ -9,14 +10,18 @@ button {
   border: none;
   appearance: none;
   font-size: var(--btn-font-size);
+  text-align: center;
+  text-decoration: none;
 }
 
-button.primary {
+button.primary,
+.button.primary {
   background: var(--dark-blue);
   color: var(--grey);
 }
 
-button.danger {
+button.danger,
+.button.danger {
   background: var(--red);
   color: var(--grey);
 }

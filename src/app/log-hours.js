@@ -16,7 +16,7 @@ function AdjusterButton({amount, label, adjust}) {
   return $(`button[type="button"][data-amount="${amount}"]`, [label], mount);
 }
 
-function LogHours() {
+export default function LogHours() {
   const defaultMinutes = 60;
   const minutesState = state({minutes: defaultMinutes});
 
@@ -146,5 +146,3 @@ function LogHours() {
     ], formMount),
   ]);
 }
-
-export { LogHours };
