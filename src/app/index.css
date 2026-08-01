@@ -10,14 +10,15 @@
 @import "send-report.css";
 @import "update-notice.css";
 
-.app {
+html, body, .app, .page {
   overflow: hidden;
-  /* actual black... stupid looking otherwise when doing dialog */
-  background: #000;
+}
+
+.app {
+  background: var(--color-black);
 }
 
 .page {
   height: 100dvh;
   background: var(--color-white);
-  overflow: hidden;
 }
