@@ -74,6 +74,7 @@
   margin: var(--dialog-padding);
   color: var(--color-red-900);
   background: var(--color-red-100);
+  box-shadow: 0 1px 0 var(--color-red-300), 0 0 0 1px var(--color-red-200);
   border-radius: 1.5rem;
 }
 
