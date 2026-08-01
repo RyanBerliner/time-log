@@ -19,18 +19,24 @@ function DayReport(date) {
     return acc + hour.minutes;
   }, 0);
 
-  return $('li', [
-    $('div', [
-      date.toLocaleDateString(undefined, {weekday: 'long'}),
-      ` - ${displayHours(totalMinutes)}`,
-    ]),
-    $('ul', hourIds.map(id => {
-        const hour = hoursData.get('hours', id);
-        return $('li', [displayHours(hour.minutes), ' ', hour.label, ' @ ', hour.metadata?.location || 'Unknown']);
-    })),
-    ...(hourIds.length ? [] : [$('span', ['No hours'])]),
-    // empty p for spacing when sending via email
-    $('p'),
+  // The spacing and element choice here is a mess, but its all to make the
+  // mailto body look OK on ios
+  return $('p', [
+    date.toLocaleDateString(undefined, {weekday: 'long'}),
+    ` - ${displayHours(totalMinutes)}`,
+    $('br'),
+    ...(hourIds.map(id => {
+      const hour = hoursData.get('hours', id);
+      return [
+        displayHours(hour.minutes),
+        ' ',
+        hour.label,
+        ' @ ',
+        hour.metadata?.location || 'Unknown',
+        $('br'),
+      ];
+    }).flat()),
+    ...(hourIds.length ? [] : [$('span', ['No hours', $('br')])]),
   ]);
 }
 
@@ -45,7 +51,7 @@ export default function SendReport() {
   );
 
   const days = stable(DayReport);
-  const $Days = $('ul', days.initial([]));
+  const $Days = $('div.days', days.initial([]));
 
   const $Total = $('p.total', []);
 
@@ -97,9 +103,7 @@ export default function SendReport() {
 
     // HACK: let the dom render first
     setTimeout(() => {
-      // encodeURIComponent doesnt render newlines predictably on ios
-      const body = $Report.innerText.replaceAll('\n', '%0D%0A');
-
+      const body = encodeURIComponent($Report.innerText);
       const subject = encodeURIComponent(`Hours for week of ${startDate.toLocaleDateString(undefined, {
         month: 'long',
         day: 'numeric',

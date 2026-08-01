@@ -43,10 +43,6 @@
   margin-bottom: var(--spacer);
 }
 
-.app__send-report .report ul {
-  list-style: none;
-}
-
-.app__send-report .report > ul > li {
+.app__send-report .report .days p {
   margin-bottom: var(--spacer);
 }
