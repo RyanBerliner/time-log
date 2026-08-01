@@ -30,7 +30,7 @@ function DayReport(date) {
     })),
     ...(hourIds.length ? [] : [$('span', ['No hours'])]),
     // empty p for spacing when sending via email
-    $('p'),
+    $('p', [' ']),
   ]);
 }
 
