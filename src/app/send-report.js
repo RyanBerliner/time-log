@@ -28,9 +28,9 @@ function DayReport(date) {
         const hour = hoursData.get('hours', id);
         return $('li', [displayHours(hour.minutes), ' ', hour.label, ' @ ', hour.metadata?.location || 'Unknown']);
     })),
-    ...(hourIds.length ? [] : [$('p', ['No hours'])]),
-    // for spacing when sending via email
-    $('br'),
+    ...(hourIds.length ? [] : [$('span', ['No hours'])]),
+    // empty p for spacing when sending via email
+    $('p'),
   ]);
 }
 
@@ -70,7 +70,6 @@ export default function SendReport() {
 
   const $Report = $('div.report[contenteditable="true"]', [
     $Total,
-    $('br'),
     $Days,
   ]);
 
@@ -98,7 +97,9 @@ export default function SendReport() {
 
     // HACK: let the dom render first
     setTimeout(() => {
-      const body = encodeURIComponent($Report.innerText);
+      // encodeURIComponent doesnt render newlines predictably on ios
+      const body = $Report.innerText.replaceAll('\n', '%0D%0A');
+
       const subject = encodeURIComponent(`Hours for week of ${startDate.toLocaleDateString(undefined, {
         month: 'long',
         day: 'numeric',
