@@ -39,14 +39,6 @@
   border-radius: 1.2em;
 }
 
-.app__send-report .report .total {
-  margin-bottom: var(--spacer);
-}
-
 .app__send-report .report ul {
   list-style: none;
-}
-
-.app__send-report .report > ul > li {
-  margin-bottom: var(--spacer);
 }

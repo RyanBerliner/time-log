@@ -28,9 +28,9 @@ function DayReport(date) {
         const hour = hoursData.get('hours', id);
         return $('li', [displayHours(hour.minutes), ' ', hour.label, ' @ ', hour.metadata?.location || 'Unknown']);
     })),
-    ...(hourIds.length ? [] : [$('span', ['No hours'])]),
-    // empty p for spacing when sending via email
-    $('p', [' ']),
+    ...(hourIds.length ? [] : [$('p', ['No hours'])]),
+    // for spacing when sending via email
+    $('br'),
   ]);
 }
 
@@ -70,6 +70,7 @@ export default function SendReport() {
 
   const $Report = $('div.report[contenteditable="true"]', [
     $Total,
+    $('br'),
     $Days,
   ]);
 
