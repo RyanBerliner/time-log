@@ -14,32 +14,36 @@
 }
 
 .app__log-hours .header .inputs > input {
-  appearance: none;
-  border: none;
+  box-shadow: none;
   background: transparent;
-  text-align: center;
+  padding: 0.1em;
   min-width: 0;
   flex-basis: 0;
   flex-grow: 1;
   width: 100%;
-  border-radius: 67px;
 }
 
 .app__log-hours .header .inputs > input:focus {
   outline: none;
-  background: var(--grey);
+  background: var(--color-gray-200);
 }
 
 .app__log-hours .header .inputs > input:first-child {
-  font-size: 1.15rem;
-  padding: 0.1em;
+  font-weight: 700;
+  font-size: var(--font-size-lg);
   margin-bottom: 0;
+}
+
+.app__log-hours .body {
+  display: flex;
+  flex-direction: column;
 }
 
 .app__log-hours .adjusters {
   display: flex;
   justify-content: center;
-  gap: calc(2*var(--spacer));
+  gap: var(--spacer-2x);
+  flex-grow: 1;
 }
 
 .app__log-hours .adjusters button {
@@ -48,33 +52,32 @@
   touch-action: manipulation;
 }
 
-.app__log-hours .adjusters button:nth-child(2) { opacity: 0.8; }
-.app__log-hours .adjusters button:nth-child(3) { opacity: 0.6; }
+.app__log-hours .adjusters button:nth-child(2) { --btn-color: var(--color-gray-600); }
+.app__log-hours .adjusters button:nth-child(3) { --btn-color: var(--color-gray-500); }
 
-.app__log-hours .adjusters > div {
+.app__log-hours .adjusters div {
   display: flex;
   flex-direction: column;
-  gap: calc(2*var(--spacer));
+  gap: var(--spacer-2x);
 }
 
-.app__log-hours > .minutes {
+.app__log-hours .minutes {
   font-size: 3rem;
   display: block;
   text-align: center;
-  margin: calc(4*var(--spacer));
+  margin: var(--spacer-4x);
   font-family: monospace;
 }
 
-.app__log-hours > .danger-zone {
-  margin-top: calc(7*var(--spacer));
-  padding: var(--dialog-padding);
-  border-top: 1px solid var(--grey);
+.app__log-hours .danger-zone {
+  padding: var(--spacer-2x) var(--spacer-2x);
+  margin: var(--dialog-padding);
+  color: var(--color-red-900);
+  background: var(--color-red-100);
+  border-radius: 1.5rem;
 }
 
-.app__log-hours > .danger-zone > p {
-  line-height: 1.3;
-  font-size: 0.85;
-  opacity: 0.8;
-  margin-bottom: var(--spacer);
-  color: var(--dark-red);
+.app__log-hours .danger-zone p {
+  margin-bottom: var(--spacer-2x);
+  line-height: 1.25;
 }

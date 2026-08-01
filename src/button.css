@@ -1,27 +1,61 @@
 button,
 .button {
-  background: var(--grey);
-  color: var(--dark-blue);
-  border-radius: 100px;
+  /* sizing */
+  --btn-horizontal-padding: var(--spacer-2x);
+  --btn-vertical-padding: var(--spacer);
+  --btn-font-size: var(--font-size-sm);
+  --btn-font-weight: 700;
+
+  font-size: var(--btn-font-size);
   padding: var(--btn-vertical-padding) var(--btn-horizontal-padding);
+  font-weight: var(--btn-font-weight);
+  /* height set with line height to match the line height of the larger text
+   * in inputs that these might be next to */
+  line-height: 1.33;
+
+  /* coloring */
+  --btn-color: var(--color-gray-800);
+  --btn-background: var(--color-gray-50);
+  --btn-lowlight: var(--color-gray-200);
+  --btn-highlight: var(--color-white);
+
+  background: var(--btn-background);
+  color: var(--btn-color);
+  box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.1),
+    inset 0 -1px 2px var(--btn-lowlight),
+    inset 0 1px 2px var(--btn-highlight);
+
+  /* shape & layout */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: 700;
+  border-radius: 100px;
   border: none;
   appearance: none;
-  font-size: var(--btn-font-size);
   text-align: center;
   text-decoration: none;
+
 }
 
 button.primary,
 .button.primary {
-  background: var(--dark-blue);
-  color: var(--grey);
+  --btn-color: var(--color-blue-50);
+  --btn-background: var(--color-blue-700);
+  --btn-lowlight: var(--color-blue-900);
+  --btn-highlight: var(--color-blue-400);
 }
 
 button.danger,
 .button.danger {
-  background: var(--red);
-  color: var(--grey);
+  --btn-color: var(--color-red-50);
+  --btn-background: var(--color-red-700);
+  --btn-lowlight: var(--color-red-900);
+  --btn-highlight: var(--color-red-400);
+}
+
+button.large,
+.button.large {
+  --btn-font-size: var(--font-size-lg);
+  --btn-horizontal-padding: var(--spacer-3x);
 }

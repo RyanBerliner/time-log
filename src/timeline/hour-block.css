@@ -12,11 +12,10 @@
 }
 
 .timeline__hour-block > strong {
-  background: var(--grey);
-  border-radius: 99px;
-  color: var(--dark-blue);
+  background: var(--color-gray-200);
+  border-radius: 67px;
   font-family: monospace;
-  font-size: var(--btn-font-size);
-  padding: var(--btn-vertical-padding) var(--btn-horizontal-padding);
-  margin-right: 0.3em;
+  font-size: var(--font-size-sm);
+  padding: var(--spacer) var(--spacer-2x);
+  margin-right: var(--spacer-half);
 }

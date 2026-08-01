@@ -14,30 +14,21 @@
 }
 
 .app__send-report select {
-  appearance: none;
-  border: none;
-  background: var(--grey);
-  text-align: center;
   min-width: 0;
   flex-basis: 0;
   flex-grow: 1;
   width: 100%;
-  border-radius: 67px;
-  padding: 0.8em;
   margin: 0 var(--spacer);
-}
-
-.app__send-report select:focus {
-  outline: none;
+  line-height: 1.6;
 }
 
 .app__send-report .report {
-  padding: calc(3*var(--spacer));
-  padding-bottom: calc(2*var(--spacer));
+  padding: var(--spacer-3x);
+  padding-bottom: var(--spacer-2x);
   margin: var(--dialog-padding);
   margin-top: 0;
-  background: var(--grey);
-  border-radius: 1.2em;
+  background: var(--color-gray-200);
+  border-radius: 1.5em;
 }
 
 .app__send-report .report .total {

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test / Manual / Input</title>
+    <style>
+      @import "test.css";
+      @import "../../src/input.css";
+      @import "../../src/button.css";
+
+      body { padding: var(--spacer-2x); }
+      body > * { margin-bottom: var(--spacer-2x); }
+      div {
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <input placeholder="placeholder" />
+    <br/>
+    <input value="the value" />
+    <br/>
+    <div>
+      <input placeholder="enter text" style="margin-right: var(--spacer);" />
+      <input type="submit" class="button primary" value="Submit" />
+    </div>
+    <br/>
+    <select>
+      <option>value 1</option>
+      <option>value 2</option>
+    </select>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 .timeline__day {
-  border-top: 1px solid var(--grey);
+  border-top: 1px solid var(--color-gray-100);
   padding: var(--spacer);
 }
 
@@ -13,9 +13,10 @@
   content: 'Tap to add hours';
   display: block;
   text-align: center;
-  opacity: 0.5;
   flex-grow: 1;
   line-height: 1.7;
+  color: var(--color-gray-500);
+  margin-bottom: 0.14em;
 }
 
 .timeline__day > div.content > ul {

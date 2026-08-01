@@ -5,7 +5,7 @@ import { Dialog } from './dialog.js';
 import { setView, hoursData, appState } from './data.js';
 
 function SendReportTrigger() {
-  const $Button = $('button.primary.app__send-report__trigger', ['Send Report']);
+  const $Button = $('button.primary.large.app__send-report__trigger', ['Send Report']);
   on($Button, 'click', () => setView('send-report'));
 
   return $Button;

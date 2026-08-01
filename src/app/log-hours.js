@@ -133,16 +133,18 @@ export default function LogHours() {
         ]),
         $('button.primary.check[type="submit"]', ['Submit']),
       ]),
-      $MinutesSpan,
-      $('div.adjusters', [
-        $('div', [[-60, '-1h'], [-30, '-30m'], [-15, '-15m']].map(([amount, label]) => {
-          return AdjusterButton({amount, label, adjust});
-        })),
-        $('div', [[60, '+1h'], [30, '+30m'], [15, '+15m']].map(([amount, label]) => {
-          return AdjusterButton({amount, label, adjust});
-        })),
+      $('div.body', [
+        $MinutesSpan,
+        $('div.adjusters', [
+          $('div', [[-60, '-1h'], [-30, '-30m'], [-15, '-15m']].map(([amount, label]) => {
+            return AdjusterButton({amount, label, adjust});
+          })),
+          $('div', [[60, '+1h'], [30, '+30m'], [15, '+15m']].map(([amount, label]) => {
+            return AdjusterButton({amount, label, adjust});
+          })),
+        ]),
+        $DangerZone,
       ]),
-      $DangerZone,
     ], formMount),
   ]);
 }

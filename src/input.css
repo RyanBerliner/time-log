@@ -1,0 +1,44 @@
+input:not([type]),
+input[type="text"],
+input[type="number"],
+select {
+  /* sizing */
+  --input-horizontal-padding: var(--spacer-2x);
+  --input-vertical-padding: var(--spacer);
+  --input-font-size: var(--font-size-normal);
+
+  font-size: var(--input-font-size);
+  padding: var(--input-vertical-padding) var(--input-horizontal-padding);
+
+  /* coloring */
+  --input-color: var(--color-gray-800);
+  --input-background: var(--color-gray-50);
+  --input-lowlight: var(--color-gray-200);
+  --input-highlight: var(--color-white);
+
+  background: var(--input-background);
+  color: var(--input-color);
+  box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.1),
+    inset 0 -1px 2px var(--input-lowlight),
+    inset 0 1px 2px var(--input-highlight);
+
+  /* shape & layout */
+  border-radius: 67px;
+  border: none;
+  appearance: none;
+  text-align: center;
+  text-align-last: center;
+  width: 100%;
+}
+
+select {
+  line-height: 1.15;
+}
+
+input:not([type])::placeholder,
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+  color: var(--color-gray-500);
+}
