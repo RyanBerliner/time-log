@@ -67,8 +67,7 @@
 
 .app__log-hours > .danger-zone {
   margin-top: calc(7*var(--spacer));
-  padding-bottom: var(--spacer);
-  padding-top: calc(2*var(--spacer));
+  padding: var(--dialog-padding);
   border-top: 1px solid var(--grey);
 }
 

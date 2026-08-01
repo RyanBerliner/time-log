@@ -9,12 +9,12 @@
   transition: transform var(--dialog-animation-duration) var(--dialog-animation-timing),
             box-shadow var(--dialog-animation-duration) var(--dialog-animation-timing);
   display: none;
-  overflow: hidden;
-  padding: calc(var(--spacer) * 2);
-
+  overflow: auto;
   transform: scale(1.1) translateY(100%);
   border-radius: 1.8rem 1.8rem 0 0;
   z-index: 2;
+
+  --dialog-padding: calc(var(--spacer) * 2);
 }
 
 .dialog.show {
@@ -29,9 +29,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--spacer);
   position: sticky;
+  z-index: 1;
   top: 0;
+  padding: var(--dialog-padding);
   background: var(--white);
 }
 

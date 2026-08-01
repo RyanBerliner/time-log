@@ -34,7 +34,8 @@
 .app__send-report .report {
   padding: calc(3*var(--spacer));
   padding-bottom: calc(2*var(--spacer));
-  margin-top: calc(2*var(--spacer));
+  margin: var(--dialog-padding);
+  margin-top: 0;
   background: var(--grey);
   border-radius: 1.2em;
 }
