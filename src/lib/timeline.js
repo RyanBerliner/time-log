@@ -1,4 +1,4 @@
-import { on } from './node.js';
+import { on } from 'lib/node.js';
 
 function timelinePaginator({
   anchor,

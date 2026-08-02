@@ -1,4 +1,4 @@
-import { $ } from './../lib/node.js';
+import { $ } from 'lib/node.js';
 
 // Holds references to each $Day's $AddHourButton, even when its not mounted
 // so it can be easily checked and readded.

@@ -1,6 +1,6 @@
-import { $ } from '../lib/node.js';
-import { quantized } from '../lib/date.js';
-import { timelinePaginator, Timeline } from '../lib/timeline.js';
+import { $ } from 'lib/node.js';
+import { quantized } from 'lib/date.js';
+import { timelinePaginator, Timeline } from 'lib/timeline.js';
 
 export default function DayTimeline(renderDay) {
   const dayPaginator = timelinePaginator({

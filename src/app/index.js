@@ -1,9 +1,11 @@
-import { $ } from '../lib/node.js';
-import DayTimeline from '../timeline/day-timeline.js';
-import LogHours from './log-hours.js';
-import SendReport, { SendReportTrigger } from './send-report.js';
-import UpdateNotice from './update-notice.js';
-import renderDay from './timeline/render-day.js';
+import { $ } from 'lib/node.js';
+
+import DayTimeline from 'root/timeline/day-timeline.js';
+
+import LogHours from 'app/log-hours.js';
+import SendReport, { SendReportTrigger } from 'app/send-report.js';
+import UpdateNotice from 'app/update-notice.js';
+import renderDay from 'app/timeline/render-day.js';
 
 const app = $('div.app', [
   UpdateNotice(),

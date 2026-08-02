@@ -1,12 +1,13 @@
-import { $, on, off, stable } from '../../lib/node.js';
-import { stringDay } from '../../lib/date.js';
-import { __DELETED__ } from '../../lib/state.js';
-import { setView, hoursData } from '../data.js';
+import { $, on, off, stable } from 'lib/node.js';
+import { stringDay } from 'lib/date.js';
+import { __DELETED__ } from 'lib/state.js';
 
-import HourBlock, * as HourBlockAPI from '../../timeline/hour-block.js';
-import DayHeader, * as DayHeaderAPI from '../../timeline/day-header.js';
-import Day, * as DayAPI from '../../timeline/day.js';
-import { AddHourButton } from '../../timeline/day.js';
+import HourBlock, * as HourBlockAPI from 'root/timeline/hour-block.js';
+import DayHeader, * as DayHeaderAPI from 'root/timeline/day-header.js';
+import Day, * as DayAPI from 'root/timeline/day.js';
+import { AddHourButton } from 'root/timeline/day.js';
+
+import { setView, hoursData } from 'app/data.js';
 
 function renderHour(hourId) {
   const hour = hoursData.get('hours', hourId);

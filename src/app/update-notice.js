@@ -1,4 +1,4 @@
-import { $, on } from '../lib/node.js';
+import { $, on } from 'lib/node.js';
 
 export default function UpdateNotice() {
   const $UpdateNow = $('a[href="#"][role="button"]', ['Update Now']);

@@ -1,8 +1,8 @@
-import { $, on, stable } from '../lib/node.js';
-import { stringDay, quantized, displayHours } from '../lib/date.js';
+import { $, on, stable } from 'lib/node.js';
+import { stringDay, quantized, displayHours } from 'lib/date.js';
 
-import { Dialog } from './dialog.js';
-import { setView, hoursData, appState } from './data.js';
+import { Dialog } from 'app/dialog.js';
+import { setView, hoursData, appState } from 'app/data.js';
 
 function SendReportTrigger() {
   const $Button = $('button.primary.large.app__send-report__trigger', ['Send Report']);

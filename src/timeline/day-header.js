@@ -1,5 +1,5 @@
-import { $ } from './../lib/node.js';
-import { displayHours } from './../lib/date.js';
+import { $ } from 'lib/node.js';
+import { displayHours } from 'lib/date.js';
 
 export default function DayHeader({date, minutes}) {
   let dow = date.toLocaleDateString(undefined, {weekday: 'short'});

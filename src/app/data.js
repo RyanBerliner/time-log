@@ -1,4 +1,4 @@
-import { state } from '../lib/state.js';
+import { state } from 'lib/state.js';
 
 const appState = state({
   view: '',

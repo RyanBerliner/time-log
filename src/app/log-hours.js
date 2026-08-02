@@ -1,9 +1,9 @@
-import { $, on } from '../lib/node.js';
-import { stringDay, displayHours } from '../lib/date.js';
-import { state } from '../lib/state.js';
+import { $, on } from 'lib/node.js';
+import { stringDay, displayHours } from 'lib/date.js';
+import { state } from 'lib/state.js';
 
-import { Dialog } from './dialog.js';
-import { setView, appState, hoursData } from './data.js';
+import { Dialog } from 'app/dialog.js';
+import { setView, appState, hoursData } from 'app/data.js';
 
 function AdjusterButton({amount, label, adjust}) {
   function mount(node) {
