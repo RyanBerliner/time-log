@@ -1,6 +1,6 @@
-import { $, on } from 'lib/node.js';
+import { $ } from 'lib/node.js';
 
-import { appState, setView } from 'app/data.js';
+import { appState } from 'app/data.js';
 
 function Dialog(viewKey, content) {
   function mount(node) {
