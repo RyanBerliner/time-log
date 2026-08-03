@@ -3,7 +3,7 @@
 // This version number and filelist is generated automatically from the build
 // script in scripts/build.sh.
 //
-const AUTOGEN_CACHE_VERSION = 'd8254be72e45a84666a3b93f2b3b840ebf004032';
+const AUTOGEN_CACHE_VERSION = '889b0ae91bc39d0a42ac943b0988ec9d7e132d51';
 const AUTOGEN_CACHE_ASSETS = ['index.html','app.webmanifest','app/log-hours.js','app/send-report.js','app/log-hours.css','app/dialog.js','app/index.js','app/index.css','app/send-report.css','app/update-notice.js','app/data.js','app/update-notice.css','app/dialog.css','app/timeline/render-day.js','input.css','lib/timeline.js','lib/node.js','lib/state.js','lib/date.js','button.css','timeline/hour-block.css','timeline/day-header.css','timeline/day-header.js','timeline/day.css','timeline/day-timeline.js','timeline/day.js','timeline/hour-block.js','base.css'];
 
 // This is deployed on my github pages site, which contains other projects
@@ -19,7 +19,17 @@ const EXPECTED_CACHES = [
 self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open(`${CACHE_PREFIX}-${AUTOGEN_CACHE_VERSION}`).then(function (cache) {
-      return cache.addAll(AUTOGEN_CACHE_ASSETS);
+      return Promise.all(
+        AUTOGEN_CACHE_ASSETS.map(async function (asset) {
+          const response = await fetch(asset, { cache: 'reload' });
+
+          if (!response.ok) {
+            throw new Error(`Failed to cache ${asset}: ${response.status}`);
+          }
+
+          await cache.put(asset, response);
+        })
+      );
     }),
   );
 });
