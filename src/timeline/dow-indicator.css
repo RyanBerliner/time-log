@@ -1,0 +1,16 @@
+.timeline__dow-indicator {
+  font-weight: 700;
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-300);
+  gap: var(--spacer-half);
+  display: flex;
+}
+
+.timeline__dow-indicator span.is-dow {
+  color: var(--color-gray-800);
+}
+
+.timeline__dow-indicator span.is-today {
+  color: var(--color-red-600);
+  text-shadow: 0 0 2px var(--color-red-200);
+}
