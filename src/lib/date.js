@@ -17,4 +17,11 @@ function displayHours(minutes) {
   return `${hours+fractionMinutes}h`;
 }
 
-export { quantized, stringDay, displayHours };
+function isToday(date) {
+  const today = new Date();
+  return date.getYear() == today.getYear() &&
+    date.getMonth() === today.getMonth() &&
+    date.getDate() === today.getDate();
+}
+
+export { quantized, stringDay, displayHours, isToday };

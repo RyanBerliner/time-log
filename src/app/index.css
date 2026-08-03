@@ -1,6 +1,7 @@
 @import "../base.css";
 @import "../button.css";
 @import "../input.css";
+@import "../timeline/day-date.css";
 @import "../timeline/day-header.css";
 @import "../timeline/day.css";
 @import "../timeline/hour-block.css";

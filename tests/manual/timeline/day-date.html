@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test / Manual / Timeline / Day Date</title>
+    <script src="../test.js"></script>
+    <style>
+      @import "../test.css";
+      @import "../../../src/timeline/day-date.css";
+
+      body { padding: var(--spacer); }
+      #root > * { margin-right: var(--spacer); }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="module">
+      import { $ } from 'lib/node.js';
+      import DayDate from 'root/timeline/day-date.js';
+
+      const root = document.getElementById('root');
+
+      // today
+      const d = new Date();
+      let test = DayDate(d);
+      root.appendChild(test);
+
+      // yesterday
+      d.setDate(d.getDate() - 1);
+      test = DayDate(d);
+      root.appendChild(test);
+    </script>
+  </body>
+</html>
