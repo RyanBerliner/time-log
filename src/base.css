@@ -68,6 +68,6 @@ html {
 }
 
 html, body {
-  font-family: sans-serif;
+  font-family: system-ui, sans-serif;
   color: var(--color-gray-700);
 }

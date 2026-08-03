@@ -16,13 +16,17 @@ select {
   --input-lowlight: var(--color-gray-200);
   --input-highlight: var(--color-white);
   --input-glow: var(--color-gray-900);
+  --input-border-highlight: var(--color-gray-300);
+  --input-border-lowlight: var(--color-gray-400);
 
   background: var(--input-background);
   color: var(--input-color);
   box-shadow:
-    0 1px 8px -3px var(--input-glow),
-    inset 0 -2px 4px 1px var(--input-lowlight),
-    inset 0 2px 4px 1px var(--input-highlight);
+    0 1px 0 var(--input-border-lowlight),
+    0 0 0 1px var(--input-border-highlight),
+    0 1px 8px -4px var(--input-glow),
+    inset 0 -1px 4px 1px var(--input-lowlight),
+    inset 0 1px 4px 1px var(--input-highlight);
 
   /* shape & layout */
   border-radius: 67px;
