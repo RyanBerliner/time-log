@@ -3,8 +3,8 @@
 // This version number and filelist is generated automatically from the build
 // script in scripts/build.sh.
 //
-const AUTOGEN_CACHE_VERSION = '889b0ae91bc39d0a42ac943b0988ec9d7e132d51';
-const AUTOGEN_CACHE_ASSETS = ['index.html','app.webmanifest','app/log-hours.js','app/send-report.js','app/log-hours.css','app/dialog.js','app/index.js','app/index.css','app/send-report.css','app/update-notice.js','app/data.js','app/update-notice.css','app/dialog.css','app/timeline/render-day.js','input.css','lib/timeline.js','lib/node.js','lib/state.js','lib/date.js','button.css','timeline/hour-block.css','timeline/day-header.css','timeline/day-header.js','timeline/day.css','timeline/day-timeline.js','timeline/day.js','timeline/hour-block.js','base.css'];
+const AUTOGEN_CACHE_VERSION = '3cb36cf631974ab6b4228c599805e967f9d45403';
+const AUTOGEN_CACHE_ASSETS = ['index.html','app.webmanifest','app/log-hours.js','app/send-report.js','app/log-hours.css','app/dialog.js','app/index.js','app/index.css','app/send-report.css','app/update-notice.js','app/data.js','app/update-notice.css','app/dialog.css','app/timeline/render-day.js','input.css','lib/timeline.js','lib/node.js','lib/state.js','lib/date.js','button.css','timeline/hour-block.css','timeline/day-date.css','timeline/day.css','timeline/day-timeline.js','timeline/day-date.js','timeline/day-minutes.css','timeline/day-minutes.js','timeline/day.js','timeline/dow-indicator.css','timeline/dow-indicator.js','timeline/hour-block.js','base.css'];
 
 // This is deployed on my github pages site, which contains other projects
 // and sites on the same domain. Because of this we should prefix the caches

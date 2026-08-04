@@ -8,8 +8,10 @@
     <style>
       @import "../test.css";
       @import "../../../src/button.css";
-      @import "../../../src/timeline/day-header.css";
+      @import "../../../src/timeline/day-date.css";
+      @import "../../../src/timeline/day-minutes.css";
       @import "../../../src/timeline/day.css";
+      @import "../../../src/timeline/dow-indicator.css";
       @import "../../../src/timeline/hour-block.css";
 
       .add-hour-button-funcs { margin: calc(var(--spacer) * 2) 0; }
@@ -20,22 +22,26 @@
     <div id="root"></div>
 
     <script type="module">
-      import { $, on, off } from '../../../src/lib/node.js';
+      import { $, on, off } from 'lib/node.js';
 
       import Day, {
         AddHourButton,
         showAddHourButton,
         removeAddHourButton,
-      } from '../../../src/timeline/day.js';
-      import HourBlock from '../../../src/timeline/hour-block.js';
-      import DayHeader from '../../../src/timeline/day-header.js';
+      } from 'root/timeline/day.js';
+      import DOWIndicator from 'root/timeline/dow-indicator.js';
+      import DayDate from 'root/timeline/day-date.js';
+      import DayMinutes from 'root/timeline/day-minutes.js';
+      import HourBlock from 'root/timeline/hour-block.js';
 
       const root = document.getElementById('root');
 
       // make sure the skeleton looks OK
       let test = Day({
-        $DayHeader: $('div', ['The day header']),
+        $DayDate: $('div', ['day date']),
+        $DOWIndicator: $('div', ['dow indicator']),
         $AddHourButton: $('div', ['The add hour button']),
+        $DayMinutes: $('div', ['1h']),
         hourNodes: [
           $('li', ['hour 1']),
           $('li', ['hour 2']),
@@ -46,20 +52,24 @@
 
       // empty list should show correctly
       test = Day({
-        $DayHeader: $('div', ['The day header']),
+        $DayDate: $('div', ['day date']),
+        $DOWIndicator: $('div', ['dow indicator']),
         $AddHourButton: $('div', ['The add hour button']),
+        $DayMinutes: $('div', ['1h']),
         hourNodes: [],
       });
       root.appendChild(test);
 
       // [show|remove]AddHourButton testing
       const $Day = Day({
-        $DayHeader: $('div', ['The day header']),
-        $AddHourButton: $('button', ['Toggle my visibility'], node => {
+        $DayDate: $('div', ['day date']),
+        $DOWIndicator: $('div', ['dow indicator']),
+        $AddHourButton: $('button', ['+'], node => {
           // simple click event so we can make sure its persistant between
           // unmounting and remounting
           return on(node, 'click', e => alert('add hour!'));
         }),
+        $DayMinutes: $('div', ['1h']),
         hourNodes: [
           $('li', ['hour 1']),
           $('li', ['hour 2']),
@@ -87,14 +97,17 @@
       for (let i = 0; i < 7; i++) {
         let date = new Date();
         date.setDate(date.getDate() + i);
-        const $AddHourButton = AddHourButton();
-        const $DayHeader = DayHeader({
-          date,
-          minutes: 60,
-        });
+        const $AddHourButton = AddHourButton(date);
+
+        const $DayDate = DayDate(date);
+        const $DOWIndicator = DOWIndicator(date);
+        const $DayMinutes = DayMinutes(i === 3 ? 0 : 200);
+
         test = Day({
-          $DayHeader,
+          $DayDate,
+          $DOWIndicator,
           $AddHourButton,
+          $DayMinutes,
           hourNodes: i === 3 ? [] : [
             $('li', [HourBlock({minutes: 65, label: 'hour block 1'})]),
             $('li', [HourBlock({minutes: 65, label: 'hour block 2'})]),

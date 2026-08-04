@@ -1,12 +1,45 @@
 .timeline__day {
   border-top: 1px solid var(--color-gray-100);
   padding: var(--spacer);
+  display: grid;
+  grid-template-areas:
+    "day-date dow-indicator minutes"
+    "day-date content add-button";
+  grid-template-columns:
+    auto minmax(0, 1fr) 3rem;
+  row-gap: var(--spacer-half);
+  column-gap: var(--spacer);
+}
+
+.timeline__day > .day-date-container {
+  grid-area: day-date;
+}
+
+.timeline__day > .dow-indicator-container {
+  grid-area: dow-indicator;
+  display: flex;
+  justify-content: center;
+}
+
+.timeline__day > .minutes-container {
+  grid-area: minutes; 
+  display: flex;
+  justify-content: end;
+}
+
+.timeline__day > .add-button-container {
+  grid-area: add-button; 
+  display: flex;
+  justify-content: end;
+}
+
+.timeline__day > .content {
+  grid-area: content; 
 }
 
 .timeline__day > div.content {
   display: flex;
   align-items: center;
-  margin-top: var(--spacer);
 }
 
 .timeline__day > div.content > ul:empty:before {
@@ -16,7 +49,8 @@
   flex-grow: 1;
   line-height: 1.7;
   color: var(--color-gray-500);
-  margin-bottom: 0.14em;
+  position: relative;
+  top: -2px;
 }
 
 .timeline__day > div.content > ul {

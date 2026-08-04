@@ -7,7 +7,12 @@ button,
   --btn-font-weight: 700;
 
   font-size: var(--btn-font-size);
-  padding: var(--btn-vertical-padding) var(--btn-horizontal-padding);
+  /* move the text up a little to make it "look" vertically centered */
+  padding:
+    calc(var(--btn-vertical-padding) - 0.075em)
+    var(--btn-horizontal-padding)
+    calc(var(--btn-vertical-padding) + 0.075em)
+    var(--btn-horizontal-padding);
   font-weight: var(--btn-font-weight);
   /* height set with line height to match the line height of the larger text
    * in inputs that these might be next to */
@@ -15,20 +20,16 @@ button,
 
   /* coloring */
   --btn-color: var(--color-gray-700);
-  --btn-background: var(--color-gray-50);
-  --btn-lowlight: var(--color-gray-300);
+  --btn-background: var(--color-gray-100);
+  --btn-lowlight: var(--color-gray-400);
   --btn-highlight: var(--color-white);
   --btn-glow: var(--color-gray-500);
-  --btn-border-highlight: var(--color-gray-300);
-  --btn-border-lowlight: var(--color-gray-400);
 
   background: var(--btn-background);
   color: var(--btn-color);
   box-shadow:
-    0 1px 0 var(--btn-border-lowlight),
-    0 0 0 1px var(--btn-border-highlight),
     0 1px 8px -4px var(--btn-glow),
-    inset 0 -1px 4px 1px var(--btn-lowlight),
+    inset 0 -3px 4px var(--btn-lowlight),
     inset 0 1px 4px 1px var(--btn-highlight);
 
   /* shape & layout */
@@ -50,8 +51,8 @@ button.primary,
   --btn-lowlight: var(--color-blue-900);
   --btn-highlight: var(--color-blue-400);
   --btn-glow: var(--color-blue-800);
-  --btn-border-highlight: var(--color-blue-600);
-  --btn-border-lowlight: var(--color-blue-900);
+  --btn-border-highlight: transparent;
+  --btn-border-lowlight: transparent;
 }
 
 button.danger,
@@ -61,8 +62,8 @@ button.danger,
   --btn-lowlight: var(--color-red-900);
   --btn-highlight: var(--color-red-400);
   --btn-glow: var(--color-red-800);
-  --btn-border-highlight: var(--color-red-700);
-  --btn-border-lowlight: var(--color-red-900);
+  --btn-border-highlight: transparent;
+  --btn-border-lowlight: transparent;
 }
 
 button.large,

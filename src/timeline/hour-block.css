@@ -13,8 +13,8 @@
 }
 
 .timeline__hour-block > strong {
-  background: var(--color-gray-100);
-  box-shadow: 0 1px 0 var(--color-gray-300), 0 0 0 1px var(--color-gray-200);
+  background: var(--color-gray-50);
+  box-shadow: 0 0 0 1px var(--color-gray-200);
   border-radius: 67px;
   font-family: monospace;
   font-size: var(--font-size-sm);

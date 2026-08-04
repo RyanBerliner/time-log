@@ -2,10 +2,11 @@ import { $, on, off, stable } from 'lib/node.js';
 import { stringDay } from 'lib/date.js';
 import { __DELETED__ } from 'lib/state.js';
 
-import HourBlock, * as HourBlockAPI from 'root/timeline/hour-block.js';
-import DayHeader, * as DayHeaderAPI from 'root/timeline/day-header.js';
 import Day, * as DayAPI from 'root/timeline/day.js';
-import { AddHourButton } from 'root/timeline/day.js';
+import DayDate from 'root/timeline/day-date.js';
+import DOWIndicator from 'root/timeline/dow-indicator.js';
+import DayMinutes, * as DayMinutesAPI from 'root/timeline/day-minutes.js';
+import HourBlock, * as HourBlockAPI from 'root/timeline/hour-block.js';
 
 import { setView, hoursData } from 'app/data.js';
 
@@ -36,14 +37,19 @@ export default function renderDay(date) {
   const hourIds = hoursData.get('hoursIndex')?.[key] ?? [];
   function log() { setView('log', {key}); }
 
-  const $DayHeader = DayHeader({date});
+  const $DayDate = DayDate(date);
+  const $DOWIndicator = DOWIndicator(date);
 
-  const $AddHourButton = AddHourButton();
+  const $AddHourButton = DayAPI.AddHourButton(date);
   on($AddHourButton, 'click', log);
 
+  const $DayMinutes = DayMinutes();
+
   const $Day = Day({
-    $DayHeader,
+    $DayDate,
+    $DOWIndicator,
     $AddHourButton,
+    $DayMinutes,
     hourNodes: hours.initial(hourIds),
   });
 
@@ -55,7 +61,7 @@ export default function renderDay(date) {
       return acc + minutes;
     }, 0);
 
-    DayHeaderAPI.updateMinutes($DayHeader, totalHours);
+    DayMinutesAPI.updateMinutes($DayMinutes, totalHours);
   }
   updateHoursSpan();
 

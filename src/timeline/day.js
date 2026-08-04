@@ -1,4 +1,5 @@
-import { $ } from 'lib/node.js';
+import { $, classNames } from 'lib/node.js';
+import { isToday } from 'lib/date.js';
 
 // Holds references to each $Day's $AddHourButton, even when its not mounted
 // so it can be easily checked and readded.
@@ -14,8 +15,10 @@ import { $ } from 'lib/node.js';
 //       bind in other frameworks I think.
 const ADD_HOURS_BUTTON_MAP = new WeakMap();
 
-function AddHourButton() {
-  return $('button', ['＋']);
+function AddHourButton(date) {
+  const $Button = $('button', ['＋']);
+  classNames($Button, { 'primary': isToday(date) });
+  return $Button;
 }
 
 function showAddHourButton($Day) {
@@ -25,7 +28,7 @@ function showAddHourButton($Day) {
     return;
   }
 
-  const content = $Day.querySelector(':scope > div.content');
+  const content = $Day.querySelector(':scope > .add-button-container');
   content.appendChild($AddHourButton);
 }
 
@@ -44,12 +47,17 @@ function queryHoursList($Day) {
 }
 
 export default function Day({
-  $DayHeader,
+  $DayDate,
+  $DOWIndicator,
   $AddHourButton,
+  $DayMinutes,
   hourNodes
 }) {
   const $Day = $('div.timeline__day', [
-    $DayHeader,
+    $('div.day-date-container', [$DayDate]),
+    $('div.dow-indicator-container', [$DOWIndicator]),
+    $('div.minutes-container', [$DayMinutes]),
+    $('div.add-button-container', []),
     $('div.content', [$('ul', hourNodes)]),
   ]);
 

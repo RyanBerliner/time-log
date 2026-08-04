@@ -18,10 +18,11 @@ import { $, on, off, stable } from 'lib/node.js';
 import { stringDay } from 'lib/date.js';
 import { __DELETED__ } from 'lib/state.js';
 
-import HourBlock, * as HourBlockAPI from 'root/timeline/hour-block.js';
-import DayHeader, * as DayHeaderAPI from 'root/timeline/day-header.js';
 import Day, * as DayAPI from 'root/timeline/day.js';
-import { AddHourButton } from 'root/timeline/day.js';
+import DayDate from 'root/timeline/day-date.js';
+import DOWIndicator from 'root/timeline/dow-indicator.js';
+import DayMinutes, * as DayMinutesAPI from 'root/timeline/day-minutes.js';
+import HourBlock, * as HourBlockAPI from 'root/timeline/hour-block.js';
 
 import { setView, hoursData } from 'app/data.js';
 ```
