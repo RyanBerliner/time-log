@@ -3,7 +3,7 @@
 // This version number and filelist is generated automatically from the build
 // script in scripts/build.sh.
 //
-const AUTOGEN_CACHE_VERSION = '3cb36cf631974ab6b4228c599805e967f9d45403';
+const AUTOGEN_CACHE_VERSION = '4a3f562921c2462a23bfaaf247ae3f589cf3291b';
 const AUTOGEN_CACHE_ASSETS = ['index.html','app.webmanifest','app/log-hours.js','app/send-report.js','app/log-hours.css','app/dialog.js','app/index.js','app/index.css','app/send-report.css','app/update-notice.js','app/data.js','app/update-notice.css','app/dialog.css','app/timeline/render-day.js','input.css','lib/timeline.js','lib/node.js','lib/state.js','lib/date.js','button.css','timeline/hour-block.css','timeline/day-date.css','timeline/day.css','timeline/day-timeline.js','timeline/day-date.js','timeline/day-minutes.css','timeline/day-minutes.js','timeline/day.js','timeline/dow-indicator.css','timeline/dow-indicator.js','timeline/hour-block.js','base.css'];
 
 // This is deployed on my github pages site, which contains other projects
